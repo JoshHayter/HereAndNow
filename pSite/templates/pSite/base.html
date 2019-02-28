@@ -1,0 +1,50 @@
+{% load static %}
+
+<html>
+
+<link rel="shortcut icon" type="image/png" href="{% static 'pSite/images/favicon.ico' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'pSite/css/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'pSite/css/animate.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'pSite/css/uikit.min.css' %}" />
+
+<script src="{% static "pSite/js/jquery-3.1.1.min.js" %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static "pSite/js/app.js" %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static "pSite/js/uikit.min.js" %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static "pSite/js/uikit-icons.min.js" %}" type="text/javascript" charset="utf-8"></script>
+<script src="https://js.stripe.com/v3/"></script>
+
+<head>
+  <title>Josh Hayter</title>
+</head>
+<body>
+
+<div style="padding: 0% 12.5% 0% 12.5%;">
+  <nav class="uk-navbar-container" uk-navbar style="background: white;">
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+          {% if active == 0 %}
+          <li class="uk-active"><a href="/">home</a></li>
+          <li><a href="info">info</a></li>
+          <li><a href="slideshow">slideshow</a></li>
+          {% elif active == 1 %}
+          <li><a href="/">home</a></li>
+          <li class="uk-active"><a href="info">info</a></li>
+          <li><a href="slideshow">slideshow</a></li>
+          {% elif active == 2 %}
+          <li><a href="/">home</a></li>
+          <li><a href="info">info</a></li>
+          <li class="uk-active"><a href="slideshow">slideshow</a></li>
+          {% endif %}
+
+        </ul>
+    </div>
+</nav>
+{% block content %}
+{% endblock %}
+<div class="uk-margin-large-top">
+  <p class="uk-align-right">©️ {% now "Y" %} Josh Hayter</p>
+</div>
+</div>
+
+</body>
+</html>

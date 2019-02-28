@@ -1,0 +1,17 @@
+{% extends "pSite/base.html" %} {% block content %} {% load static %}
+You are being redirected to Stripe for payment...
+<script>
+var stripe = Stripe(
+  'pk_test_IPB7iAtJpXtrMNUWINHsJrOZ', {
+    betas: ['checkout_beta_4']
+  }
+);
+
+  stripe.redirectToCheckout({
+    sessionId: "{{ session.id }}",
+  }).then(function(result) {
+    // Display result.error.message to your customer
+  });
+
+</script>
+{% endblock %}

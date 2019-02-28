@@ -1,0 +1,33 @@
+{% extends "pSite/base.html" %} {% block content %} {% load static %}
+
+<div uk-slideshow="animation: slide; min-height: 300; max-height: 800;">
+  <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+    <ul class="uk-slideshow-items">
+      <li>
+        <img data-src="{% static "pSite/images/1.jpg" %}" alt="Josh Hayter" uk-img>
+      </li>
+      <li>
+        <img data-src="{% static "pSite/images/2.jpg" %}" alt="Josh Hayter" uk-img>
+      </li>
+      <li>
+        <img data-src="{% static "pSite/images/3.jpg" %}" alt="Josh Hayter" uk-img>
+      </li>
+      <li>
+        <img data-src="{% static "pSite/images/4.jpg" %}" alt="Josh Hayter" uk-img>
+      </li>
+      <li>
+        <img data-src="{% static "pSite/images/5.jpg" %}" alt="Josh Hayter" uk-img>
+      </li>
+      <li>
+        <img data-src="{% static "pSite/images/6.jpg" %}" alt="Josh Hayter" uk-img>
+      </li>
+    </ul>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
+  </div>
+  <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
+</div>
+{% endblock %}
