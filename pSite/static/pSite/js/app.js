@@ -22,4 +22,11 @@ $(document).ready(function() {
   });
 
   showNextQuote();
+
+});
+
+
+$(window).bind("load", function() {
+  // $('#loading').hide();
+   $('#content').show();
 });
