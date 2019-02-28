@@ -7,7 +7,7 @@ app_name = 'pSite'
 urlpatterns = [
     # ex: /
     url(r'^$', views.index, name='index'),
-    url(r'^info$', views.info, name='info'),
+    url(r'^about$', views.about, name='about'),
     url(r'^slideshow$', views.slideshow, name='slideshow'),
     url(r'^success$', views.success, name='success'),
     url(r'^cancel$', views.cancel, name='cancel'),

@@ -20,13 +20,13 @@ def index(request):
 
     return render(request, 'pSite/index.html', context)
 
-def info(request):
+def about(request):
 
     context = {
     'active' : 1
         }
 
-    return render(request, 'pSite/info.html', context)
+    return render(request, 'pSite/about.html', context)
 
 def slideshow(request):
 

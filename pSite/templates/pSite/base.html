@@ -17,34 +17,36 @@
   <title>Josh Hayter</title>
 </head>
 <body>
+<div class="nav-padding uk-background-muted">
 
-<div style="padding: 0% 12.5% 0% 12.5%;">
-  <nav class="uk-navbar-container" uk-navbar style="background: white;">
+  <nav class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-left">
+      <ul class="uk-navbar-nav">
+        <li class="uk-active"><a href="/">brand</a></li>
+      </ul>
+    </div>
     <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
           {% if active == 0 %}
-          <li class="uk-active"><a href="/">home</a></li>
-          <li><a href="info">info</a></li>
-          <li><a href="slideshow">slideshow</a></li>
+          <li class="uk-active"><a href="/">shop</a></li>
+          <li><a href="about">about</a></li>
           {% elif active == 1 %}
-          <li><a href="/">home</a></li>
-          <li class="uk-active"><a href="info">info</a></li>
-          <li><a href="slideshow">slideshow</a></li>
-          {% elif active == 2 %}
-          <li><a href="/">home</a></li>
-          <li><a href="info">info</a></li>
-          <li class="uk-active"><a href="slideshow">slideshow</a></li>
+          <li><a href="/">shop</a></li>
+          <li class="uk-active"><a href="about">about</a></li>
+
           {% endif %}
 
         </ul>
     </div>
 </nav>
+<div class="content-padding">
+
 {% block content %}
 {% endblock %}
 <div class="uk-margin-large-top">
   <p class="uk-align-right">©️ {% now "Y" %} Josh Hayter</p>
 </div>
 </div>
-
+</div>
 </body>
 </html>
