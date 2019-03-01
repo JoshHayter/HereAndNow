@@ -1,5 +1,15 @@
-{% extends "pSite/base.html" %} {% block content %} {% load static %}
-You are being redirected to Stripe for payment...
+{% load static %}
+
+<html>
+
+<link rel="shortcut icon" type="image/png" href="{% static 'pSite/images/favicon.ico' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'pSite/css/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'pSite/css/uikit.min.css' %}" />
+
+<script src="{% static "pSite/js/jquery-3.1.1.min.js" %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static "pSite/js/uikit.min.js" %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static "pSite/js/uikit-icons.min.js" %}" type="text/javascript" charset="utf-8"></script>
+<script src="https://js.stripe.com/v3/"></script>
 <script>
   var stripe = Stripe(
     'pk_test_IPB7iAtJpXtrMNUWINHsJrOZ', {
@@ -13,4 +23,19 @@ You are being redirected to Stripe for payment...
     // Display result.error.message to customer
   });
 </script>
-{% endblock %}
+
+<head>
+  <title>Here & Now</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="center">
+      <div uk-spinner="ratio: 3"></div>
+      Please wait whilst you're redirected to our payment gateway...
+    </div>
+  </div>
+</body>
+
+</html>
