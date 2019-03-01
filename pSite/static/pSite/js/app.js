@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
-  $('#buy1').on('click', function() {
-          window.location = '/1/charge/';
+  $('.buy').on('click', function(event) {
+    var id = event.currentTarget.dataset.id;
+    var locStr = '/' + id + '/charge/';
+    window.location = locStr;
   });
-
-
 });
 
 

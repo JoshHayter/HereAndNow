@@ -85,6 +85,9 @@ def cancel(request):
     return render(request, 'pSite/cancel.html', context)
 
 def charge(request, item_id):
+
+    stockItem = stockList[int(item_id) - 1]
+
     stripe.api_key = "sk_test_KmC6QMGCkYiLu1RijawnCnJ5"
 
     stripe.api_version = "2019-02-19; checkout_sessions_beta=v1"
@@ -95,9 +98,9 @@ def charge(request, item_id):
     payment_method_types=["card"],
     line_items=[
         {
-        "amount": 4999,
+        "amount": int(stockItem.price * 100),
         "quantity": 1,
-        "name": "Landscape 1",
+        "name": stockItem.title,
         "currency": "gbp"
         },
     ])
