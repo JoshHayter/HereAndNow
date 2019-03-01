@@ -4,7 +4,6 @@
 
 <link rel="shortcut icon" type="image/png" href="{% static 'pSite/images/favicon.ico' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'pSite/css/style.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'pSite/css/animate.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'pSite/css/uikit.min.css' %}" />
 
 <script src="{% static "pSite/js/jquery-3.1.1.min.js" %}" type="text/javascript" charset="utf-8"></script>
@@ -16,17 +15,18 @@
 <head>
   <title>Here & Now</title>
 </head>
+
 <body>
 
-<div class="nav-padding uk-background-muted">
+  <div class="nav-padding uk-background-muted">
 
-  <nav class="uk-navbar-container" uk-navbar>
-    <div class="uk-navbar-left">
-      <ul class="uk-navbar-nav">
-        <li class="uk-active"><a href="/" class="uk-text-lowercase">brand</a></li>
-      </ul>
-    </div>
-    <div class="uk-navbar-right">
+    <nav class="uk-navbar-container" uk-navbar>
+      <div class="uk-navbar-left">
+        <ul class="uk-navbar-nav">
+          <li class="uk-active"><a href="/" class="uk-text-lowercase">brand</a></li>
+        </ul>
+      </div>
+      <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
           {% if active == 0 %}
           <li class="uk-active"><a href="/" class="uk-text-lowercase">shop</a></li>
@@ -38,18 +38,19 @@
           {% endif %}
 
         </ul>
+      </div>
+    </nav>
+
+
+    <div id="content" class="hide-for-load content-padding" style="display: none;">
+
+      {% block content %}
+      {% endblock %}
+      <div class="uk-margin-large-top">
+        <p class="uk-align-right">©️ {% now "Y" %} Josh Hayter</p>
+      </div>
     </div>
-</nav>
-
-
-<div id="content" class="hide-for-load content-padding" style="display: none;">
-
-{% block content %}
-{% endblock %}
-<div class="uk-margin-large-top">
-  <p class="uk-align-right">©️ {% now "Y" %} Josh Hayter</p>
-</div>
-</div>
-</div>
+  </div>
 </body>
+
 </html>
