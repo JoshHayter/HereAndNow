@@ -1,152 +1,40 @@
-{% extends "pSite/base.html" %} {% block content %} {% load static %}
+{% extends "pSite/base.html" %} {% block content %} {% load static %} {% get_static_prefix as STATIC_PREFIX %}
+
 
 
 <div class="uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-3@l uk-grid-match uk-flex-bottom" uk-grid>
 
+  {% for stock in stockList %}
   <div class="uk-cover-container uk-responsive-width uk-height-max-large">
-    <a href="#modal-1" uk-toggle>
-      <img data-src="{% static "pSite/images/1.jpg" %}" alt="Josh Hayter" class="uk-align-center" uk-img>
-      <p class="uk-align-right uk-link-reset normal-text">Landscape 1</p>
+    <a href="#modal-{{stock.image}}" uk-toggle>
+      <img data-src="{{ STATIC_PREFIX }}pSite/images/{{stock.image}}.jpg" alt="{{stock.title}}" class="uk-align-center" uk-img>
+      <p class="uk-align-right uk-link-reset normal-text">{{stock.title}}</p>
     </a>
   </div>
-  <div class="uk-cover-container uk-responsive-width uk-height-max-large">
-    <a href="#modal-2" uk-toggle>
-    <img data-src="{% static "pSite/images/2.jpg" %}" alt="Josh Hayter" class="uk-align-center" uk-img>
-    <p class="uk-align-right uk-link-reset normal-text">caption</p>
-    </a>
-  </div>
-  <div class="uk-cover-container uk-responsive-width uk-height-max-large">
-    <a href="#modal-3" uk-toggle>
-    <img data-src="{% static "pSite/images/3.jpg" %}" alt="Josh Hayter" class="uk-align-center" uk-img>
-    <p class="uk-align-right uk-link-reset normal-text">caption</p>
-    </a>
-  </div>
-  <div class="uk-cover-container uk-responsive-width uk-height-max-large">
-    <a href="#modal-4" uk-toggle>
-    <img data-src="{% static "pSite/images/4.jpg" %}" alt="Josh Hayter" class="uk-align-center" uk-img>
-    <p class="uk-align-right uk-link-text normal-text">caption</p>
-    </a>
-  </div>
-  <div class="uk-cover-container uk-responsive-width uk-height-max-large">
-    <a href="#modal-5" uk-toggle>
-    <img data-src="{% static "pSite/images/5.jpg" %}" alt="Josh Hayter" class="uk-align-center" uk-img>
-    <p class="uk-align-right uk-link-reset normal-text">caption</p>
-    </a>
-  </div>
-  <div class="uk-cover-container uk-responsive-width uk-height-max-large">
-    <a href="#modal-6" uk-toggle>
-    <img data-src="{% static "pSite/images/6.jpg" %}" alt="Josh Hayter" class="uk-align-center" uk-img>
-    <p class="uk-align-right uk-link-reset normal-text">caption</p>
-    </a>
-  </div>
+  {% endfor %}
 
 </div>
 
-<div id="modal-1" class="uk-modal-full" uk-modal>
+{% for stock in stockList %}
+<div id="modal-{{stock.image}}" class="uk-modal-full" uk-modal>
     <div class="uk-modal-dialog uk-padding-large" style="" uk-height-viewport>
         <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
         <div class="uk-grid-collapse uk-child-width-1-1@s uk-child-width-1-2@m uk-flex-middle" uk-grid>
           <div class="uk-cover-container uk-responsive-width uk-height-max-large">
-            <img data-src="{% static "pSite/images/1.jpg" %}" alt="Josh Hayter" class="uk-align-center uk-height-max-large" uk-img>
+            <img data-src="{{ STATIC_PREFIX }}pSite/images/{{stock.image}}.jpg" alt="{{stock.title}}" class="uk-align-center uk-height-max-large" uk-img>
           </div>
           <div class="uk-padding-large">
-                <h1 class="uk-text-left">Landscape 1</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>£49.99</p>
-                <a id="buy1" class="uk-button uk-button-default uk-align-right" uk-toggle>
+                <h1 class="uk-text-left">{{stock.title}}</h1>
+                <p>{{stock.description}}</p>
+                <p>£{{stock.price}}</p>
+                <a id="buy1" class="uk-button uk-button-default uk-align-right">
                   <div class="buy-button-padding">BUY</div>
                 </a>
           </div>
         </div>
     </div>
 </div>
-<div id="modal-2" class="uk-modal-full" uk-modal>
-    <div class="uk-modal-dialog" style="padding: 2.5% 12.5% 2.5% 12.5%;" uk-height-viewport>
-        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-        <div class="uk-grid-collapse uk-child-width-1-1@s uk-child-width-1-2@m uk-flex-middle" uk-grid>
-          <div class="uk-cover-container uk-responsive-width uk-height-max-large">
-            <img data-src="{% static "pSite/images/2.jpg" %}" alt="Josh Hayter" class="uk-align-center uk-height-max-large" uk-img>
-          </div>
-          <div class="uk-padding-large">
-                <h1>Headline</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>£80.00</p>
-                <a class="uk-button uk-button-default uk-align-right" uk-toggle>
-                  <div class="">BUY</div>
-                </a>
-
-          </div>
-        </div>
-    </div>
-</div>
-<div id="modal-3" class="uk-modal-full" uk-modal>
-    <div class="uk-modal-dialog" style="padding: 2.5% 12.5% 2.5% 12.5%;" uk-height-viewport>
-        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-        <div class="uk-grid-collapse uk-child-width-1-1@s uk-child-width-1-2@m uk-flex-middle" uk-grid>
-          <div class="uk-cover-container uk-responsive-width uk-height-max-large">
-            <img data-src="{% static "pSite/images/3.jpg" %}" alt="Josh Hayter" class="uk-align-center uk-height-max-large" uk-img>
-          </div>
-          <div class="uk-padding-large">
-                <h1>Headline</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>£75.99</p>
-                <a class="uk-button uk-button-default" uk-toggle>Buy now</a>
-
-          </div>
-        </div>
-    </div>
-</div>
-<div id="modal-4" class="uk-modal-full" uk-modal>
-    <div class="uk-modal-dialog" style="padding: 2.5% 12.5% 2.5% 12.5%;" uk-height-viewport>
-        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-        <div class="uk-grid-collapse uk-child-width-1-1@s uk-child-width-1-2@m uk-flex-middle" uk-grid>
-          <div class="uk-cover-container uk-responsive-width uk-height-max-large">
-            <img data-src="{% static "pSite/images/4.jpg" %}" alt="Josh Hayter" class="uk-align-center uk-height-max-large" uk-img>
-          </div>
-          <div class="uk-padding-large">
-                <h1>Headline</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>£120.00</p>
-                <a class="uk-button uk-button-default" uk-toggle>Buy now</a>
-
-          </div>
-        </div>
-    </div>
-</div>
-<div id="modal-5" class="uk-modal-full" uk-modal>
-    <div class="uk-modal-dialog" style="padding: 2.5% 12.5% 2.5% 12.5%;" uk-height-viewport>
-        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-        <div class="uk-grid-collapse uk-child-width-1-1@s uk-child-width-1-2@m uk-flex-middle" uk-grid>
-          <div class="uk-cover-container uk-responsive-width uk-height-max-large">
-            <img data-src="{% static "pSite/images/5.jpg" %}" alt="Josh Hayter" class="uk-align-center uk-height-max-large" uk-img>
-          </div>
-          <div class="uk-padding-large">
-                <h1>Headline</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>£99.99</p>
-                <a class="uk-button uk-button-default" uk-toggle>Buy now</a>
-
-          </div>
-        </div>
-    </div>
-</div>
-<div id="modal-6" class="uk-modal-full" uk-modal>
-    <div class="uk-modal-dialog" style="padding: 2.5% 12.5% 2.5% 12.5%;" uk-height-viewport>
-        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-        <div class="uk-grid-collapse uk-child-width-1-1@s uk-child-width-1-2@m uk-flex-middle" uk-grid>
-          <div class="uk-cover-container uk-responsive-width uk-height-max-large">
-            <img data-src="{% static "pSite/images/6.jpg" %}" alt="Josh Hayter" class="uk-align-center uk-height-max-large" uk-img>
-          </div>
-          <div class="uk-padding-large">
-                <h1>Headline</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>£80.00</p>
-                <a class="uk-button uk-button-default" uk-toggle>Buy now</a>
-
-          </div>
-        </div>
-    </div>
-</div>
+{% endfor %}
 
 <div class="uk-margin-large-top uk-text-center">
   <a href="#" uk-totop uk-scroll></a>
