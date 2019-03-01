@@ -10,7 +10,7 @@ You are being redirected to Stripe for payment...
   stripe.redirectToCheckout({
     sessionId: "{{ session.id }}",
   }).then(function(result) {
-    // Display result.error.message to your customer
+    // Display result.error.message to customer
   });
 </script>
 {% endblock %}
