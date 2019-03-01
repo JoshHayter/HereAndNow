@@ -5,7 +5,6 @@ from . import views
 app_name = 'pSite'
 
 urlpatterns = [
-    # ex: /
     url(r'^$', views.index, name='index'),
     url(r'^about$', views.about, name='about'),
     url(r'^slideshow$', views.slideshow, name='slideshow'),

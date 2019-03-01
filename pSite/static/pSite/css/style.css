@@ -1,65 +1,6 @@
-.flex-container {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  align-items: center;
-  justify-content: space-around;
-}
-.flex-container-wrap {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-.flex-container-col {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  align-items: center;
-  justify-content: flex-end;
-}
-.flex-container-row {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  align-items: center;
-  justify-content: space-around;
-}
-
 .headertext{
   padding:30px;
   font: 40px Avenir;
-
-}
-
-.flex-item {}
-
-.mainheader {
-  top: 0px;
-  padding: 2.5% 12.5% 2.5% 12.5%;
-  position: relative;
-  overflow: hidden;
-  background: rgba(256, 256, 256, 1);
-  color: black;
-  margin-top: auto;
-}
-
-.blueskydiv {
-  height: 25%;
-  background-image: url("images/London.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
 }
 
 .logo {
@@ -70,47 +11,10 @@
   cursor: pointer;
 }
 
-.quote {
-  font: 16px Avenir;
-  text-align: center;
-  font-style: italic;
-  padding: 10% 0 10% 0;
-  display: none;
-}
-.quotes {
-  font: 15px Avenir;
-  text-align: left;
-  font-style: italic;
-  padding: 5% 0% 5% 0%;
-}
-
-.imgQuote {
-  font: 15px Avenir;
-  color: black;
-  text-align: center;
-  font-style: italic;
-  min-width: 30%;
-}
-
 .adjustableimage {
   max-width: 100%;
   height: auto;
   width: auto\9;
-  /* ie8 */
-}
-
-.recommendations{
-  width: 180px;
-  height: 20px;
-  font-size: 14px;
-  font-family: Avenir;
-  color: #44494c;
-  border: 1px solid #ED4CA4;
-  border-radius: 40px;
-  text-align: center;
-}
-.quotecontainer{
-
 }
 
 a {
@@ -126,15 +30,6 @@ body, html {
   font-size: 16px;
   font-family: Avenir;
   color: #44494c;
-}
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #E6007E;
-  padding: 0;
-  color: #E6007E;
 }
 
 h1 {
@@ -167,14 +62,6 @@ h4 {
 
 }
 
-.bold {
-  font-weight: bold;
-}
-
-.border{
-  border-top: 1px solid #E6007E;
-}
-
 .nav-padding{
   padding-top: 20px;
   padding-right: 70px;
@@ -200,39 +87,7 @@ h4 {
 }
 
 @media (min-width: 1024px) {
-  .border{
-    border-left: 1px solid #E6007E;
-    border-top: none;
-  }
-  .flex-container{
-    -webkit-flex-direction: row;
-    flex-direction: row;
-  }
-  .textBlock{
-    margin: 0% 5% 0% 5%;
-  }
-  .quote{
-    padding: 10% 10% 10% 10%;
-  }
-  .imgQuote{
-    padding: 10% 10% 10% 10%;
-  }
 
-  .blueskydiv {
-    height: 50%;
-  }
-
-  .logo {
-    border-style: none;
-    max-width: 30%;
-  }
-  .headertext{
-    padding:20px;
-    font: 18px Avenir;
-  }
-  .quotecontainer{
-    height: 275px;
-  }
 }
 
 
