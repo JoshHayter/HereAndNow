@@ -4,18 +4,52 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 from django.views.generic import TemplateView
+from .models import Stock
 import stripe
 
 class Struct:
     def __init__(self, **entries):
         self.__dict__.update(entries)
 
+testStock1 = Stock(title = "Landscape 1", artist = "John Doe",
+                    description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    price = 49.99, quantity = 1, image = "1")
+
+testStock2 = Stock(title = "Landscape 2", artist = "John Doe",
+                    description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    price = 89.99, quantity = 1, image = "2")
+
+testStock3 = Stock(title = "Landscape 3", artist = "John Doe",
+                    description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    price = 200.00, quantity = 1, image = "3")
+
+testStock4 = Stock(title = "Landscape 4", artist = "John Doe",
+                    description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    price = 150.00, quantity = 1, image = "4")
+
+testStock5 = Stock(title = "Landscape 5", artist = "John Doe",
+                    description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    price = 75.00, quantity = 1, image = "5")
+
+testStock6 = Stock(title = "Landscape 6", artist = "John Doe",
+                    description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    price = 80.00, quantity = 1, image = "6")
+
+stockList = []
+stockList.append(testStock1)
+stockList.append(testStock2)
+stockList.append(testStock3)
+stockList.append(testStock4)
+stockList.append(testStock5)
+stockList.append(testStock6)
+
 
 def index(request):
 
 
     context = {
-        'active' : 0
+        'active' : 0,
+        'stockList' : stockList
         }
 
     return render(request, 'pSite/index.html', context)
